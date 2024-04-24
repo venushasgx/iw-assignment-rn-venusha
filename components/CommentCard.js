@@ -1,12 +1,6 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
-
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function CommentCard({commentData}) {
-    
-
-    console.log(commentData)
     
     return (
         <View style={cardStyles.container}>

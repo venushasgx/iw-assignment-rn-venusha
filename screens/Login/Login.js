@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useAuth } from '../../utils/context/AuthContext';
 import { useNavigation } from '@react-navigation/native';
@@ -6,29 +6,25 @@ import { useNavigation } from '@react-navigation/native';
 export default function Login() {
 
 
-    const navigator =  useNavigation();
-    const {login} = useAuth();
+    const navigator = useNavigation();
+    const { login } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {user} = useAuth();
     const handleLogin = () => {
-       
-       // console.log("Email:", email);
-       // console.log("Password:", password);
 
-        if (email=== "" && password === "") {
+
+        if (email === "venusha" && password === "123") {
+            //simulating login function 
             console.log("logged");
+
+            //set user state at AuthContext using Context API
             login(email);
             navigator.navigate('Home')
 
         }
-
         else {
             console.log("Invalid login")
         }
-
-       
-    
 
     }
 
@@ -61,8 +57,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        width:'100%',
-        padding:30
+        width: '100%',
+        padding: 30
     },
     mainText: {
         fontSize: 30,

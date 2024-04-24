@@ -1,11 +1,10 @@
-import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, Text, ScrollView } from 'react-native';
 import CommentCard from '../../components/CommentCard';
 import React, { useEffect, useState } from 'react';
 
 export default function Comments({ route }) {
     const [data, setData] = useState([]);
 
-    //console.log(route.params.postId);
 
     useEffect(() => {
         getComments();
@@ -17,8 +16,6 @@ export default function Comments({ route }) {
             .then((json) => setData(json))
             .catch((error) => console.error('error', error));
     }
-
-    //console.log(data);
 
     return (
       

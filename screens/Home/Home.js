@@ -1,7 +1,7 @@
 // TabNavigator.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 
 import Posts from '../Posts/Posts';
@@ -17,7 +17,7 @@ export default function Home() {
    
     return (
         <View style={style.container}>
-            
+            {/* 3 tabs for profile, albums and posts */}
             <Tab.Navigator >
             <Tab.Screen name="Profile" component={Profile}  />
                 <Tab.Screen name="Albums" component={Albums}  />

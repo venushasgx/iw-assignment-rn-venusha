@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, ScrollView, View } from 'react-native';
+import { StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import PostCard from '../../components/PostCard';
 
 export default function Posts() {
     const [postData, setPostData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getPosts();
@@ -12,12 +13,13 @@ export default function Posts() {
     function getPosts() {
         fetch('https://jsonplaceholder.typicode.com/posts?&_limit=5')
             .then((res) => res.json())
-            .then((json) => setPostData(json))
+            .then((json) => { setPostData(json); setIsLoading(false); })
             .catch((error) => console.error('error', error));
     }
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
+            {isLoading && <ActivityIndicator size="large" color="#0000ff" />}
             {postData.map((post) => (
                 <PostCard key={post.id} postData={post} />
             ))}

@@ -5,22 +5,21 @@ import { AuthProvider } from './utils/context/AuthContext';
 import Home from './screens/Home/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
+
 import Albums from './screens/Albums/Albums';
 import Posts from './screens/Posts/Posts';
 import Profile from './screens/Profile/Profile';
 import Comments from './screens/Comments/Comments';
+import Photos from './screens/Photos/Photos';
 
-//import TabNavigator from './TabNavigator';
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-
-
-
+      {/* user context provider  */}
       <AuthProvider>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Login" screenOptions={{
@@ -28,6 +27,7 @@ export default function App() {
           }} >
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Comments" component={Comments} />
+            <Stack.Screen name="Photos" component={Photos} />
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Albums" component={Albums} />
@@ -44,9 +44,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    backgroundColor: '#fff', 
 
   },
 });

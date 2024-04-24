@@ -1,13 +1,15 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View,  Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function PostCard({postData}) {
+
+
+export default function AlbumCard({albumData}) {
     const navigator = useNavigation();
     return (
         <View style={cardStyles.container}>
-            <Text style={cardStyles.title}>{postData.title}</Text>
-            <Text style={cardStyles.body}>{postData.body} </Text>
-            <Button  title='View Comments' onPress={()=>navigator.navigate("Comments", {postId:postData.id})}/>
+            <Text style={cardStyles.title}>{albumData.title}</Text>
+         
+            <Button  title='View Photos' onPress={()=>navigator.navigate("Photos", {AlbumId:albumData.id})}/>
         </View>
     )
 }
@@ -24,10 +26,8 @@ const cardStyles = StyleSheet.create({
     },
 
     title:{
-        fontSize:20
-    },
-
-    body:{
+        fontSize:20,
         marginBottom:10
     }
+
 })
